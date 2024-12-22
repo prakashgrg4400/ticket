@@ -45,5 +45,5 @@ export default {
             },
         },
     },
-    plugins: [require("tailwindcss-3d")({ legacy: true })],
+    plugins: [import("tailwindcss-3d")({ legacy: true })],
 };
