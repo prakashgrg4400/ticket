@@ -1,0 +1,42 @@
+.trending-section {
+    padding: 10rem 0 2rem 0;
+    background-color: #f0f0f0;
+}
+
+.event-title {
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+}
+.event-title .left-title {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+.event-title .right-title {
+    color: #6b30be;
+}
+
+.event-title::after {
+    content: "";
+    display: block;
+    border-top: 2px solid black;
+    border-left: 0.7px solid black;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 60%;
+    left: 17%;
+    transform: translate(-60%, -17%);
+}
+.event-title::before {
+    content: "";
+    display: block;
+    border-top: 2px solid black;
+    border-right: 0.7px solid black;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 100%;
+    left: 90%;
+    transform: translate(-100%, -90%);
+}
