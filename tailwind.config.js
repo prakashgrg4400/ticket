@@ -10,7 +10,7 @@ export default {
             animation: {
                 "spin-3d": "autorun 20s linear infinite",
                 start: "startrun 2s ease-in ",
-                "start-bg": "startrun 4s ease-in ",
+                "start-bg": "startrun 8s ease-in ",
             },
             keyframes: {
                 autorun: {

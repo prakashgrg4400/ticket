@@ -12,14 +12,18 @@ function Home() {
     return (
         <>
             <Header />
-            <SearchCategory />
-            <TrendingEvents />
-            <UpcomingEvent />
-            <EventOrganizers />
-            <RegisterOrganizer />
-            <FunActivities />
-            <Footer />
-            <BackgroundImage />
+            <main>
+                <SearchCategory />
+                <TrendingEvents />
+                <UpcomingEvent />
+                <EventOrganizers />
+                <RegisterOrganizer />
+                <FunActivities />
+            </main>
+            <footer>
+                <Footer />
+                <BackgroundImage />
+            </footer>
         </>
     );
 }

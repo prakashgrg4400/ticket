@@ -2,27 +2,53 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router";
 import style1 from "../assets/css/event.module.css";
-import { useRef} from "react";
+import { useEffect, useRef, useState } from "react";
 import useImageLoader from "../hooks/useImageLoader";
 
 const options = {
-    rootMargin: "0px 0px 0px 0px",
+    rootMargin: "100px 0px",
     threshold: 0.5,
 };
 
 function SingleEvent({ name, img, description, date, id }) {
-    const imgElement = useRef();
+    const imgElement = useRef(null);
+    const [inView, setInView] = useState(false);
 
     useImageLoader();
 
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries, self) => {
+            // console.log(entries);
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setInView(true);
+                    self.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        if (imgElement.current) {
+            observer.observe(imgElement.current);
+        }
+
+        let myImage = imgElement.current;
+        return () => {
+            if (myImage) {
+                observer.unobserve(myImage);
+            }
+        };
+    }, []);
+
     return (
-        <div className={`${style1["single-event"]}`}>
+        <div className={`${style1["single-event"]}  `}>
             <img
                 // src={img}
                 data-src={img}
                 ref={imgElement}
                 alt=""
-                className={`${style1["event-image"]} bg-rgba(0,0,0,0.7) `}
+                className={`${style1["event-image"]} ${
+                    inView ? "animate-start" : ""
+                }  `}
                 loading="lazy"
             />
             <div className={`${style1["event-handle"]}`}>

@@ -2,17 +2,41 @@ import trendingEvents from "../data/event";
 import singleEventStyle from "../assets/css/event.module.css";
 import eventStyle from "../assets/css/upcoming.module.css";
 import { NavLink } from "react-router";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import useImageLoader from "../hooks/useImageLoader";
 
-// const options = {
-//     rootMargin: "0px 0px 0px 0px",
-//     threshold: 0,
-// };
+const options = {
+    rootMargin: "100px 0px",
+    threshold: 0.5,
+};
 function TrendingEvents() {
-    const [isHover, setIsHover] = useState(false);
+    const [inView, setInView] = useState(false);
+    const imgElement = useRef(null);
 
     useImageLoader();
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries, self) => {
+            // console.log(entries);
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setInView(true);
+                    self.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        if (imgElement.current) {
+            observer.observe(imgElement.current);
+        }
+
+        let myImage = imgElement.current;
+        return () => {
+            if (myImage) {
+                observer.unobserve(myImage);
+            }
+        };
+    }, []);
 
     return (
         // h-[110vh]
@@ -28,45 +52,36 @@ function TrendingEvents() {
                 </div>
             </div>
             <div
-                className={`${
-                    isHover
-                        ? "absolute h-[200px] w-[200px] transform-style-3d"
-                        : "animate-spin-3d absolute h-[200px] w-[200px] transform-style-3d "
-                } `}
+                className={`
+                   
+                        animate-spin-3d absolute h-[200px] w-[200px] transform-style-3d 
+                 `}
                 style={{ transform: "perscpective(700px)" }}
             >
                 {trendingEvents.map((trending, index) => {
                     return (
                         <div
                             key={index}
-                            className={`${
-                                isHover
-                                    ? "absolute inset-x-0 inset-y-0"
-                                    : "absolute inset-x-0 inset-y-0  "
-                            }  `}
-                            style={
-                                isHover
-                                    ? {
-                                          //   transform:
-                                          //   "rotateY(0deg) translateZ(350px)",
-                                      }
-                                    : {
-                                          transform: `rotateY(${
-                                              (360 / trendingEvents.length) *
-                                              index
-                                          }deg) translateZ(350px)`,
-                                      }
-                            }
-                            // onMouseEnter={() => setIsHover(true)}
-                            // onMouseLeave={() => setIsHover(false)}
+                            className={`
+                                    absolute inset-x-0 inset-y-0  
+                            `}
+                            style={{
+                                transform: `rotateY(${
+                                    (360 / trendingEvents.length) * index
+                                }deg) translateZ(350px)`,
+                            }}
                         >
                             <div
                                 className={`h-full w-full ${singleEventStyle["single-event"]} `}
                             >
                                 <img
+                                    ref={imgElement}
                                     data-src={trending.img}
                                     alt=""
-                                    className={`h-full w-full bg-[rgba(0,0,0,0.7)] object-cover ${singleEventStyle["event-image"]}`}
+                                    className={`h-full w-full object-cover ${
+                                        singleEventStyle["event-image"]
+                                    } ${inView ? "animate-start" : ""} `}
+                                    loading="lazy"
                                 />
                                 <div
                                     className={`${singleEventStyle["event-handle"]}`}

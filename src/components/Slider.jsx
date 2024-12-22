@@ -9,7 +9,6 @@ const len = sliderImage.length - 1;
 
 function Slider() {
     const [activeIndex, setActiveIndex] = useState(0);
-    // console.log(sliderImage);
 
     useEffect(() => {
         const interval = setInterval(() => {

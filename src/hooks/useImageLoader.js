@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
 const options = {
-    threshold: 0,
-    rootMargin: "0px 0px 0px 0px",
+    threshold: 0.5,
+    rootMargin: "100px 0px",
 };
 
 const useImageLoader = function () {

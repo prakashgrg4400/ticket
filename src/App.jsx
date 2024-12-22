@@ -18,47 +18,22 @@ const EventDetails = lazy(() => import("./pages/EventDetails"));
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path="/" element={<RootLayout />}>
-            <Route
-                index
-                element={
-                    <Suspense fallback={<Loading />}>
-                        <Home />
-                    </Suspense>
-                }
-            />
-            <Route
-                path="/events"
-                element={
-                    <Suspense fallback={<Loading />}>
-                        <Events />
-                    </Suspense>
-                }
-            />
-            <Route
-                path="/contact"
-                element={
-                    <Suspense fallback={<Loading />}>
-                        <ContactUs />
-                    </Suspense>
-                }
-            />
-            <Route
-                path="/about"
-                element={
-                    <Suspense fallback={<Loading />}>
-                        <AboutUs />
-                    </Suspense>
-                }
-            />
+        <Route
+            path="/"
+            element={
+                <Suspense fallback={<Loading />}>
+                    <RootLayout />
+                </Suspense>
+            }
+        >
+            <Route index element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/about" element={<AboutUs />} />
             <Route
                 path="/eventDetails/:id"
                 loader={eventDetailsLoader}
-                element={
-                    <Suspense fallback={<Loading />}>
-                        <EventDetails />
-                    </Suspense>
-                }
+                element={<EventDetails />}
             />
         </Route>
     )
