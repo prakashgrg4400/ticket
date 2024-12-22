@@ -1,4 +1,4 @@
-import eventList from "../utils/event";
+import eventList from "../data/event";
 
 export async function eventDetailsLoader({ params }) {
     let id = params.id * 1;
