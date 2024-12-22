@@ -1,6 +1,16 @@
+import { useState } from "react";
 import "../assets/css/register.css";
+import { NavLink } from "react-router";
+import RegisterForm from "./RegisterForm";
+import RegisterModal from "./UI/RegisterModal";
 
 function RegisterOrganizer() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    function handleModal() {
+        setIsOpen(true);
+    }
+
     return (
         <section className="relative h-[200px] bg-[#F0F0F0]">
             <div className="register-div">
@@ -10,9 +20,14 @@ function RegisterOrganizer() {
                     crafting a message or providing more details about the
                     platform, feel free to ask!
                 </p>
-                <a href="" className="register-btn">
+                <NavLink className="register-btn" onClick={handleModal}>
                     REGISTER NOW
-                </a>
+                </NavLink>
+                {isOpen && (
+                    <RegisterModal setIsOpen={setIsOpen}>
+                        <RegisterForm />
+                    </RegisterModal>
+                )}
             </div>
         </section>
     );
