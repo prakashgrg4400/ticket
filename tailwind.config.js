@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import tailwindCss3d from "tailwindcss-3d";
 export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
@@ -45,5 +46,5 @@ export default {
             },
         },
     },
-    plugins: [import("tailwindcss-3d")({ legacy: true })],
+    plugins: [tailwindCss3d({ legacy: true })],
 };
