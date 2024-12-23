@@ -11,6 +11,7 @@ function RegisterForm() {
                             Full Name
                         </label>
                         <input
+                            required
                             className="p-[0.3rem] font-light outline-none border-[1px] border-black focus:border-[#BC8ED0] focus:shadow-[0_0_5px_0px_#7933B5] "
                             type="text"
                             name=""
@@ -22,6 +23,7 @@ function RegisterForm() {
                             Email Address
                         </label>
                         <input
+                            required
                             className="p-[0.3rem] font-light outline-none border-[1px] border-black focus:border-[#BC8ED0] focus:shadow-[0_0_5px_0px_#7933B5] "
                             type="email"
                             name=""
@@ -33,6 +35,7 @@ function RegisterForm() {
                             Password
                         </label>
                         <input
+                            required
                             className="p-[0.3rem] font-light outline-none border-[1px] border-black focus:border-[#BC8ED0] focus:shadow-[0_0_5px_0px_#7933B5] "
                             type="password"
                             name=""
@@ -44,6 +47,7 @@ function RegisterForm() {
                             Confirm Password
                         </label>
                         <input
+                            required
                             className="p-[0.3rem] font-light outline-none border-[1px] border-black focus:border-[#BC8ED0] focus:shadow-[0_0_5px_0px_#7933B5] "
                             type="password"
                             name=""
@@ -55,6 +59,7 @@ function RegisterForm() {
                             Phone Number
                         </label>
                         <input
+                            required
                             className="p-[0.3rem] font-light outline-none border-[1px] border-black focus:border-[#BC8ED0] focus:shadow-[0_0_5px_0px_#7933B5] "
                             type="number"
                             name=""
@@ -71,6 +76,7 @@ function RegisterForm() {
                             Photo
                         </label>
                         <input
+                            required
                             type="file"
                             name=""
                             id=""
@@ -84,7 +90,7 @@ function RegisterForm() {
                         <textarea
                             name=""
                             id=""
-                            className="p-[0.3rem] font-light outline-none border-[1px] border-black focus:border-[#BC8ED0] focus:shadow-[0_0_5px_0px_#7933B5] "
+                            className="p-[0.3rem] h-[150px] font-light outline-none border-[1px] border-black focus:border-[#BC8ED0] focus:shadow-[0_0_5px_0px_#7933B5] "
                         ></textarea>
                     </div>
                     <div className="flex flex-col gap-[1rem] mb-[1rem]">
@@ -92,6 +98,7 @@ function RegisterForm() {
                             Address
                         </label>
                         <input
+                            required
                             type="text"
                             name=""
                             id=""
@@ -99,9 +106,10 @@ function RegisterForm() {
                         />
                     </div>
                     <input
+                        required
                         type="submit"
                         value="Register"
-                        className="bg-gradient-to-r from-[#9729B1] to-[#6E37B6] px-[3rem] py-[1rem] text-white rounded-xl "
+                        className="text-white cursor-pointer inline rounded-[50px] bg-gradient-to-r from-[#932AB1] to-[#6D37B6] m-auto px-[2rem] py-[0.5rem] mx-auto "
                     />
                 </div>
             </form>

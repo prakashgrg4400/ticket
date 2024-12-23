@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import SLiderContent from "./SLiderContent";
 import sliderImage from "../data/sliderImage";
 import "../assets/css/slider.css";
-// import Arrow from "./Arrow";
-// import Dots from "./Dots";
+import Arrow from "./Arrow";
+import Dots from "./Dots";
 
 const len = sliderImage.length - 1;
 
@@ -25,7 +25,7 @@ function Slider() {
                 activeIndex={activeIndex}
                 sliderImage={sliderImage}
             />
-            {/* <Arrow
+            <Arrow
                 prevSlide={() =>
                     setActiveIndex(activeIndex < 1 ? len : activeIndex - 1)
                 }
@@ -37,7 +37,7 @@ function Slider() {
                 activeIndex={activeIndex}
                 sliderImage={sliderImage}
                 onclick={(activeIndex) => setActiveIndex(activeIndex)}
-            /> */}
+            />
         </div>
     );
 }

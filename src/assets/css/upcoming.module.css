@@ -40,3 +40,12 @@
     left: 90%;
     transform: translate(-100%, -90%);
 }
+@media only screen and (max-width: 600px) {
+    .event-title .left-title {
+        font-size: 2rem;
+    }
+    .event-title::before {
+        top: 82%;
+        left: 95%;
+    }
+}

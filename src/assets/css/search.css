@@ -38,3 +38,19 @@ form {
     font-size: 1rem;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    form {
+        flex-direction: column;
+        /* border: 2px solid green;  */
+        gap: 1rem;
+    }
+    .input-style,
+    .search-buttons {
+        width: 100%;
+        /* border: 3px solid red; */
+    }
+    .search-reset-btn {
+        font-size: 0.6rem;
+    }
+}

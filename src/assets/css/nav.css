@@ -10,6 +10,8 @@
     width: 100%;
     top: 0;
     left: 0;
+    /* border: 5px solid green; */
+    /* overflow-x: hidden; */
 }
 
 .container {
@@ -63,4 +65,45 @@ a:hover {
 }
 .active {
     border-bottom: 3px solid #fff;
+}
+
+@media only screen and (max-width: 600px) {
+    .logo-icon {
+        height: 70px;
+        width: 70px;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        right: -25%;
+        height: 130%;
+        width: 20%;
+        /* background-color: black; */
+        display: block;
+        top: 60%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 0.5rem 1rem;
+        /* border: 5px solid green; */
+        transition: all 0.5s ease-in-out;
+    }
+    a {
+        font-size: 0.5rem;
+        /* border-bottom: 1px solid white; */
+    }
+    .buttons {
+        display: flex;
+    }
+    .btn {
+        font-size: 0.5rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .active {
+        border-bottom: 2px solid white;
+    }
+    .open {
+        right: 0%;
+    }
 }

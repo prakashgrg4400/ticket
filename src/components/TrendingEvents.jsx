@@ -52,27 +52,22 @@ function TrendingEvents() {
                 </div>
             </div>
             <div
-                className={`
-                   
-                        animate-spin-3d absolute h-[200px] w-[200px] transform-style-3d 
-                 `}
-                style={{ transform: "perscpective(700px)" }}
+                className={` flex flex-wrap md:animate-spin-3d md:perspective-750 md:absolute md:h-[200px] md:w-[200px] md:transform-style-3d bg-red-400 absolute`}
+                // style={{ transform: "perscpective(700px)" }}
             >
                 {trendingEvents.map((trending, index) => {
                     return (
                         <div
                             key={index}
-                            className={`
-                                    absolute inset-x-0 inset-y-0  
-                            `}
+                            className={` md:absolute md:inset-x-0 md:inset-y-0 w-full `}
                             style={{
                                 transform: `rotateY(${
                                     (360 / trendingEvents.length) * index
-                                }deg) translateZ(350px)`,
+                                }deg)  translateZ(350px)`,
                             }}
                         >
                             <div
-                                className={`h-full w-full ${singleEventStyle["single-event"]} `}
+                                className={`md:h-full md:w-full ${singleEventStyle["single-event"]} `}
                             >
                                 <img
                                     ref={imgElement}

@@ -5,10 +5,10 @@ import { FaLessThan } from "react-icons/fa6";
 function Arrow({ prevSlide, nextSlide }) {
     return (
         <div className="arrows">
-            <span className="prev" onClick={prevSlide}>
+            <span className="prev opacity-55" onClick={prevSlide}>
                 <FaLessThan />
             </span>
-            <span className="next" onClick={nextSlide}>
+            <span className="next opacity-55" onClick={nextSlide}>
                 <FaGreaterThan />
             </span>
         </div>
