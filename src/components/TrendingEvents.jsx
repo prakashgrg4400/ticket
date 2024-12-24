@@ -3,7 +3,7 @@ import singleEventStyle from "../assets/css/event.module.css";
 import eventStyle from "../assets/css/upcoming.module.css";
 import { NavLink } from "react-router";
 import { useState, useEffect, useRef } from "react";
-import useImageLoader from "../hooks/useImageLoader";
+// import useImageLoader from "../hooks/useImageLoader";
 
 const options = {
     rootMargin: "100px 0px",
@@ -11,9 +11,44 @@ const options = {
 };
 function TrendingEvents() {
     const [inView, setInView] = useState(false);
+    const [imagesLoaded, setImagesLoaded] = useState(false);
     const imgElement = useRef(null);
 
-    useImageLoader();
+    // useImageLoader();
+
+    useEffect(() => {
+        const loadImage = (image) => {
+            return new Promise((resolve, reject) => {
+                let myImage = new Image();
+                myImage.src = image.img;
+
+                myImage.onload = () => {
+                    setTimeout(() => {
+                        // console.log("Image resolved successfully");
+                        resolve("Image details => success");
+                    }, 2000);
+                };
+
+                myImage.onerror = (err) => {
+                    // console.log("Image Failed to Load");
+                    reject("Unable to load image => ", err);
+                };
+            });
+        };
+
+        Promise.all(
+            trendingEvents.map((image) => {
+                return loadImage(image);
+            })
+        )
+            .then((result) => {
+                console.log(result);
+                setImagesLoaded(true);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries, self) => {
@@ -52,47 +87,52 @@ function TrendingEvents() {
                 </div>
             </div>
             <div
-                className={` flex flex-wrap md:animate-spin-3d md:perspective-750 md:absolute md:h-[200px] md:w-[200px] md:transform-style-3d bg-red-400 absolute`}
+                className={` flex flex-wrap md:animate-spin-3d md:perspective-750 md:absolute md:h-[200px] md:w-[200px] md:transform-style-3d absolute`}
                 // style={{ transform: "perscpective(700px)" }}
             >
-                {trendingEvents.map((trending, index) => {
-                    return (
-                        <div
-                            key={index}
-                            className={` md:absolute md:inset-x-0 md:inset-y-0 w-full `}
-                            style={{
-                                transform: `rotateY(${
-                                    (360 / trendingEvents.length) * index
-                                }deg)  translateZ(350px)`,
-                            }}
-                        >
+                {imagesLoaded ? (
+                    trendingEvents.map((trending, index) => {
+                        return (
                             <div
-                                className={`md:h-full md:w-full ${singleEventStyle["single-event"]} `}
+                                key={index}
+                                className={` md:absolute md:inset-x-0 md:inset-y-0 w-full `}
+                                style={{
+                                    transform: `rotateY(${
+                                        (360 / trendingEvents.length) * index
+                                    }deg)  translateZ(350px)`,
+                                }}
                             >
-                                <img
-                                    ref={imgElement}
-                                    data-src={trending.img}
-                                    alt=""
-                                    className={`h-full w-full object-cover ${
-                                        singleEventStyle["event-image"]
-                                    } ${inView ? "animate-start" : ""} `}
-                                    loading="lazy"
-                                />
                                 <div
-                                    className={`${singleEventStyle["event-handle"]}`}
+                                    className={`md:h-full md:w-full ${singleEventStyle["single-event"]} `}
                                 >
-                                    <h2>{trending.name}</h2>
-                                    <NavLink
-                                        to={`/eventDetails/${trending.id}`}
-                                        className={`${singleEventStyle["every-btn"]} btn`}
+                                    <img
+                                        ref={imgElement}
+                                        data-src={trending.img}
+                                        src={trending.img}
+                                        alt=""
+                                        className={`h-full w-full object-cover ${
+                                            singleEventStyle["event-image"]
+                                        } ${inView ? "animate-start" : ""} `}
+                                        loading="lazy"
+                                    />
+                                    <div
+                                        className={`${singleEventStyle["event-handle"]}`}
                                     >
-                                        View Event
-                                    </NavLink>
+                                        <h2>{trending.name}</h2>
+                                        <NavLink
+                                            to={`/eventDetails/${trending.id}`}
+                                            className={`${singleEventStyle["every-btn"]} btn`}
+                                        >
+                                            View Event
+                                        </NavLink>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })
+                ) : (
+                    <h1>Image is Loading</h1>
+                )}
             </div>
         </section>
     );

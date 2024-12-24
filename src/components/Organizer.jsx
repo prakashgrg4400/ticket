@@ -6,6 +6,28 @@ import useImageLoader from "../hooks/useImageLoader";
 function Organizer({ logo }) {
     const imgElement = useRef(null);
     const [inView, setInView] = useState(false);
+    // const [imageLoaded, setImageLoaded] = useState(false);
+
+    // useEffect(() => {
+    //     const loadImage = (image) => {
+    //         return new Promise((resolve, reject) => {
+    //             let myImage = new Image();
+    //             myImage.src = image;
+
+    //             myImage.onload = resolve("Image Loaded successfully");
+    //             myImage.onerror = reject("Failed to Load image!!!");
+    //         });
+    //     };
+
+    //     loadImage(logo)
+    //         .then((success) => {
+    //             console.log("Success => ", success);
+    //             setImageLoaded(true);
+    //         })
+    //         .catch((err) => {
+    //             console.log("error => ", err);
+    //         });
+    // }, []);
 
     useImageLoader();
 
@@ -19,7 +41,7 @@ function Organizer({ logo }) {
                     }
                 });
             },
-            { rootMargin: "100px 0px", threshold: 0 }
+            { rootMargin: "300px 0px", threshold: 0 }
         );
 
         if (imgElement.current) {
@@ -34,11 +56,13 @@ function Organizer({ logo }) {
             }
         };
     }, []);
+
     return (
         <div className="organizer-logo ">
             <img
                 ref={imgElement}
                 data-src={logo}
+                // src={logo}
                 alt=""
                 className={`organizer-logo-img ${
                     inView ? "animate-start" : ""

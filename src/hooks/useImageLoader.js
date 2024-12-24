@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const options = {
     threshold: 0.5,
-    rootMargin: "100px 0px",
+    rootMargin: "300px 0px",
 };
 
 const useImageLoader = function () {
