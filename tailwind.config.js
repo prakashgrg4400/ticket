@@ -44,6 +44,12 @@ export default {
             boxShadow: {
                 innerdeep: "inset 0 0 3px 0 rgba(0 ,0 , 0, 0.2)",
             },
+            translate: {
+                "z-0": "0",
+                "z-10": "10px",
+                "z-20": "20px",
+                "z-50": "50px",
+            },
         },
     },
     plugins: [tailwindCss3d({ legacy: true })],

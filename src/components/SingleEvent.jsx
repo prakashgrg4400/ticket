@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import useImageLoader from "../hooks/useImageLoader";
 
 const options = {
-    rootMargin: "100px 0px",
+    rootMargin: "300px 0px",
     threshold: 0.5,
 };
 

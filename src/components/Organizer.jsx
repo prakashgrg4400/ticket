@@ -1,35 +1,35 @@
 /* eslint-disable react/prop-types */
 
 import { useEffect, useRef, useState } from "react";
-import useImageLoader from "../hooks/useImageLoader";
+// import useImageLoader from "../hooks/useImageLoader";
 
 function Organizer({ logo }) {
     const imgElement = useRef(null);
     const [inView, setInView] = useState(false);
-    // const [imageLoaded, setImageLoaded] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState(false);
 
-    // useEffect(() => {
-    //     const loadImage = (image) => {
-    //         return new Promise((resolve, reject) => {
-    //             let myImage = new Image();
-    //             myImage.src = image;
+    useEffect(() => {
+        const loadImage = (image) => {
+            return new Promise((resolve, reject) => {
+                let myImage = new Image();
+                myImage.src = image;
 
-    //             myImage.onload = resolve("Image Loaded successfully");
-    //             myImage.onerror = reject("Failed to Load image!!!");
-    //         });
-    //     };
+                myImage.onload = resolve("Image Loaded successfully");
+                myImage.onerror = reject("Failed to Load image!!!");
+            });
+        };
 
-    //     loadImage(logo)
-    //         .then((success) => {
-    //             console.log("Success => ", success);
-    //             setImageLoaded(true);
-    //         })
-    //         .catch((err) => {
-    //             console.log("error => ", err);
-    //         });
-    // }, []);
+        loadImage(logo)
+            .then((success) => {
+                console.log("Success => ", success);
+                setImageLoaded(true);
+            })
+            .catch((err) => {
+                console.log("error => ", err);
+            });
+    }, []);
 
-    useImageLoader();
+    // useImageLoader();
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -62,7 +62,7 @@ function Organizer({ logo }) {
             <img
                 ref={imgElement}
                 data-src={logo}
-                // src={logo}
+                src={imageLoaded ? logo : ""}
                 alt=""
                 className={`organizer-logo-img ${
                     inView ? "animate-start" : ""

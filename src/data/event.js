@@ -1,9 +1,9 @@
-import ticket1 from "../assets/img/concert1.jpg";
-import ticket2 from "../assets/img/concert2.jpg";
-import ticket3 from "../assets/img/concert3.jpg";
-import ticket4 from "../assets/img/concert4.jpg";
-import ticket5 from "../assets/img/concert5.jpg";
-import ticket6 from "../assets/img/concert6.jpg";
+import ticket1 from "../assets/img/concert1_IMGCentury.webp";
+import ticket2 from "../assets/img/concert2_IMGCentury.webp";
+import ticket3 from "../assets/img/concert3_IMGCentury.webp";
+import ticket4 from "../assets/img/concert4_IMGCentury.webp";
+import ticket5 from "../assets/img/concert5_IMGCentury.webp";
+import ticket6 from "../assets/img/concert6_IMGCentury.webp";
 
 export default [
     {

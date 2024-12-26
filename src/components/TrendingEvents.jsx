@@ -13,6 +13,7 @@ function TrendingEvents() {
     const [inView, setInView] = useState(false);
     const [imagesLoaded, setImagesLoaded] = useState(false);
     const imgElement = useRef(null);
+    const [stopRotation, setStopRotation] = useState(false);
 
     // useImageLoader();
 
@@ -87,23 +88,29 @@ function TrendingEvents() {
                 </div>
             </div>
             <div
-                className={` flex flex-wrap md:animate-spin-3d md:perspective-750 md:absolute md:h-[200px] md:w-[200px] md:transform-style-3d absolute`}
-                // style={{ transform: "perscpective(700px)" }}
+                className={` flex flex-wrap ${
+                    stopRotation ? "" : "md:animate-spin-3d"
+                } md:perspective-750 md:absolute md:h-[200px] md:w-[200px] md:transform-style-3d absolute `}
+                style={{
+                    transform: "perscpective(700px)",
+                }}
             >
                 {imagesLoaded ? (
                     trendingEvents.map((trending, index) => {
                         return (
                             <div
                                 key={index}
-                                className={` md:absolute md:inset-x-0 md:inset-y-0 w-full `}
+                                className={` md:absolute w-full transition-all ease-in-out duration-100  `}
                                 style={{
                                     transform: `rotateY(${
                                         (360 / trendingEvents.length) * index
-                                    }deg)  translateZ(350px)`,
+                                    }deg)  translateZ(${
+                                        stopRotation ? "200px" : "350px"
+                                    })`,
                                 }}
                             >
                                 <div
-                                    className={`md:h-full md:w-full ${singleEventStyle["single-event"]} `}
+                                    className={`md:h-full md:w-full ${singleEventStyle["single-event"]}`}
                                 >
                                     <img
                                         ref={imgElement}
@@ -114,6 +121,12 @@ function TrendingEvents() {
                                             singleEventStyle["event-image"]
                                         } ${inView ? "animate-start" : ""} `}
                                         loading="lazy"
+                                        onMouseEnter={() => {
+                                            setStopRotation(true);
+                                        }}
+                                        onMouseLeave={() => {
+                                            setStopRotation(false);
+                                        }}
                                     />
                                     <div
                                         className={`${singleEventStyle["event-handle"]}`}
