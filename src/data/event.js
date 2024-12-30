@@ -36,7 +36,7 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
-        delay: 0.7,
+        delay: 0.5,
     },
     {
         id: 3,
@@ -52,7 +52,7 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
-        delay: 0.9,
+        delay: 0.5,
     },
     {
         id: 4,
@@ -67,7 +67,7 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
-        delay: 1.1,
+        delay: 0.5,
         price: 300,
     },
     {
@@ -83,7 +83,7 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
-        delay: 1.3,
+        delay: 0.5,
         price: 300,
     },
     {
@@ -99,7 +99,7 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
-        delay: 1.5,
+        delay: 0.5,
         price: 300,
     },
 ];
