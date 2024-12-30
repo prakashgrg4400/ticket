@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import { motion } from "framer-motion";
+import { headerAnimation } from "../animation/animate";
 
 function SLiderContent({ activeIndex, sliderImage }) {
     return (
@@ -14,7 +16,14 @@ function SLiderContent({ activeIndex, sliderImage }) {
                         } image-slider`}
                     >
                         <img src={slide.urls} alt="" className="slide-image" />
-                        <h2 className="slide-title">{slide.title}</h2>
+                        <motion.h2
+                            variants={headerAnimation(1.5, "50%")}
+                            initial="initial"
+                            whileInView={"animate"}
+                            className="slide-title"
+                        >
+                            {slide.title}
+                        </motion.h2>
                     </div>
                 );
             })}

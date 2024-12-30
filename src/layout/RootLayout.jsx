@@ -5,6 +5,8 @@ import { useState } from "react";
 import Modal from "../components/UI/Modal";
 import Signup from "../components/UI/Signup";
 import Signin from "../components/UI/Signin";
+import { AnimatePresence, motion } from "framer-motion";
+import { slidedown } from "../animation/animate";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 function RootLayout() {
@@ -16,7 +18,12 @@ function RootLayout() {
     }
     return (
         <>
-            <div className="navbar">
+            <motion.div
+                variants={slidedown(0.5)}
+                initial="initial"
+                className="navbar"
+                animate={"animate"}
+            >
                 <div className="logo-icon">
                     <img src={logo} className="logo" alt="" />
                 </div>
@@ -51,13 +58,17 @@ function RootLayout() {
                         setOpenMenu((prev) => !prev);
                     }}
                 />
-            </div>
-            {isModalOpen && (
-                <Modal setIsModelOpen={setIsModelOpen}>
-                    <Signin />
-                    <Signup />
-                </Modal>
-            )}
+            </motion.div>
+
+            <AnimatePresence>
+                {isModalOpen && (
+                    <Modal setIsModelOpen={setIsModelOpen}>
+                        <Signin />
+                        <Signup />
+                    </Modal>
+                )}
+            </AnimatePresence>
+
             {/* <Modal /> */}
             <Outlet />
         </>

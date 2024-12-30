@@ -3,10 +3,17 @@ import { MdGroups2 } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import { FaQuestionCircle } from "react-icons/fa";
 import { FaStaylinked } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import { slideright } from "../animation/animate";
 
 function MessageDescription() {
     return (
-        <div className="w-[48%] shadow-[0_0_5px_5px_#f9f9f9] p-[2rem] ">
+        <motion.div
+            variants={slideright(0.5)}
+            initial="initial"
+            whileInView={"animate"}
+            className="w-[48%] shadow-[0_0_5px_5px_#f9f9f9] p-[2rem] "
+        >
             <h2 className="text-4xl font-bold bg-gradient-to-r from-[#9728B0] to-[#6C38B6] inline-block text-transparent bg-clip-text mb-[2rem] ">
                 Let&apos;s Connect
             </h2>
@@ -48,7 +55,7 @@ function MessageDescription() {
                 <FaStaylinked className="text-2xl box-content p-2 bg-[#7F32B4] rounded-full text-white" />
                 <FaStaylinked className="text-2xl box-content p-2 bg-[#7F32B4] rounded-full text-white" />
             </div>
-        </div>
+        </motion.div>
     );
 }
 

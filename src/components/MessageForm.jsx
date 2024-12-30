@@ -1,8 +1,15 @@
 import { GrSend } from "react-icons/gr";
+import { motion } from "framer-motion";
+import { slideleft } from "../animation/animate";
 
 function MessageForm() {
     return (
-        <div className="w-[48%] shadow-[0_0_5px_5px_#f9f9f9] p-[2rem]">
+        <motion.div
+            variants={slideleft(0.5)}
+            initial="initial"
+            whileInView={"animate"}
+            className="w-[48%] shadow-[7px_7px_5px_0_#eae9e9] p-[2rem]"
+        >
             <form action="" method="get" className="flex flex-col gap-[1rem]">
                 <div className="flex flex-col gap-[1rem] ">
                     <label htmlFor="" className="text-sm font-light">
@@ -73,7 +80,7 @@ function MessageForm() {
                     <input type="submit" value="Send Message" />
                 </div>
             </form>
-        </div>
+        </motion.div>
     );
 }
 

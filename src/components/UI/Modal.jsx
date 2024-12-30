@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import { fadeInAndOut } from "../../animation/animate";
+import { motion } from "framer-motion";
 
 function Modal({ setIsModelOpen, children }) {
     const [signinOrSignup, setSigninOrSignup] = useState(false);
@@ -10,13 +12,21 @@ function Modal({ setIsModelOpen, children }) {
 
     return createPortal(
         <>
-            <div
+            <motion.div
+                variants={fadeInAndOut(0, 0.5)}
+                initial="initial"
+                animate="animate"
+                exit="exit"
                 className="h-screen w-screen bg-black z-[150] top-0 left-0 opacity-50 fixed"
                 onClick={() => {
                     setIsModelOpen(false);
                 }}
-            ></div>
-            <div
+            ></motion.div>
+            <motion.div
+                variants={fadeInAndOut(0.3)}
+                initial="initial"
+                animate="animate"
+                exit="exit"
                 className={`fixed w-[60%] flex h-[70%] bg-white z-[200] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
             >
                 {children}
@@ -41,7 +51,7 @@ function Modal({ setIsModelOpen, children }) {
                         {signinOrSignup ? "Sign in" : "Sign up"}
                     </button>
                 </div>
-            </div>
+            </motion.div>
         </>,
         document.getElementById("modal")
     );

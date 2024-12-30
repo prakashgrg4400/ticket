@@ -1,154 +1,75 @@
-import trendingEvents from "../data/event";
-import singleEventStyle from "../assets/css/event.module.css";
-import eventStyle from "../assets/css/upcoming.module.css";
+import event from "../data/event";
+import style from "../assets/css/upcoming.module.css";
 import { NavLink } from "react-router";
-import { useState, useEffect, useRef } from "react";
-// import useImageLoader from "../hooks/useImageLoader";
+import { motion } from "framer-motion";
+import { slideleft } from "../animation/animate";
 
-const options = {
-    rootMargin: "100px 0px",
-    threshold: 0.5,
-};
 function TrendingEvents() {
-    const [inView, setInView] = useState(false);
-    const [imagesLoaded, setImagesLoaded] = useState(false);
-    const imgElement = useRef(null);
-    const [stopRotation, setStopRotation] = useState(false);
-
-    // useImageLoader();
-
-    useEffect(() => {
-        const loadImage = (image) => {
-            return new Promise((resolve, reject) => {
-                let myImage = new Image();
-                myImage.src = image.img;
-
-                myImage.onload = () => {
-                    setTimeout(() => {
-                        // console.log("Image resolved successfully");
-                        resolve("Image details => success");
-                    }, 2000);
-                };
-
-                myImage.onerror = (err) => {
-                    // console.log("Image Failed to Load");
-                    reject("Unable to load image => ", err);
-                };
-            });
-        };
-
-        Promise.all(
-            trendingEvents.map((image) => {
-                return loadImage(image);
-            })
-        )
-            .then((result) => {
-                console.log(result);
-                setImagesLoaded(true);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries, self) => {
-            // console.log(entries);
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setInView(true);
-                    self.unobserve(entry.target);
-                }
-            });
-        }, options);
-
-        if (imgElement.current) {
-            observer.observe(imgElement.current);
-        }
-
-        let myImage = imgElement.current;
-        return () => {
-            if (myImage) {
-                observer.unobserve(myImage);
-            }
-        };
-    }, []);
-
     return (
-        // h-[110vh]
-        <section className="h-[110vh] w-full text-center  flex items-center justify-center relative bg-[#F0F0F0] ">
-            <div className="absolute w-full top-[8%]">
-                <div className={`${eventStyle["event-title"]} container `}>
-                    <h2 className={`${eventStyle["left-title"]}`}>
-                        Trending{" "}
-                        <span className={`${eventStyle["right-title"]}`}>
-                            Events
-                        </span>
-                    </h2>
-                </div>
+        <div className="container ">
+            <div className={`${style["event-title"]} container`}>
+                <h2
+                    className={`${style["left-title"]}`}
+                    // variants={slideup(0.5)}
+                    // initial="initial"
+                    // whileInView={"animate"}
+                >
+                    Trending{" "}
+                    <span className={`${style["right-title"]}`}>EVENTS</span>
+                </h2>
             </div>
-            <div
-                className={` flex flex-wrap ${
-                    stopRotation ? "" : "md:animate-spin-3d"
-                } md:perspective-750 md:absolute md:h-[200px] md:w-[200px] md:transform-style-3d absolute `}
-                style={{
-                    transform: "perscpective(700px)",
-                }}
-            >
-                {imagesLoaded ? (
-                    trendingEvents.map((trending, index) => {
-                        return (
-                            <div
-                                key={index}
-                                className={` md:absolute w-full transition-all ease-in-out duration-100  `}
-                                style={{
-                                    transform: `rotateY(${
-                                        (360 / trendingEvents.length) * index
-                                    }deg)  translateZ(${
-                                        stopRotation ? "200px" : "350px"
-                                    })`,
-                                }}
-                            >
-                                <div
-                                    className={`md:h-full md:w-full ${singleEventStyle["single-event"]}`}
-                                >
-                                    <img
-                                        ref={imgElement}
-                                        data-src={trending.img}
-                                        src={trending.img}
-                                        alt=""
-                                        className={`h-full w-full object-cover ${
-                                            singleEventStyle["event-image"]
-                                        } ${inView ? "animate-start" : ""} `}
-                                        loading="lazy"
-                                        onMouseEnter={() => {
-                                            setStopRotation(true);
-                                        }}
-                                        onMouseLeave={() => {
-                                            setStopRotation(false);
-                                        }}
-                                    />
-                                    <div
-                                        className={`${singleEventStyle["event-handle"]}`}
-                                    >
-                                        <h2>{trending.name}</h2>
-                                        <NavLink
-                                            to={`/eventDetails/${trending.id}`}
-                                            className={`${singleEventStyle["every-btn"]} btn`}
-                                        >
-                                            View Event
-                                        </NavLink>
-                                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8 p-8  mt-8 ">
+                {event.map((event) => {
+                    return (
+                        <motion.div
+                            key={event.id}
+                            className="rounded-xl relative border-2 border-gray-300 flex flex-col shadow-[5px_5px_5px_0_gray] "
+                            variants={slideleft(event.delay)}
+                            initial="initial"
+                            whileInView="animate"
+                        >
+                            <div className="h-52 w-full overflow-hidden rounded-t-xl">
+                                <img
+                                    src={event.img}
+                                    alt=""
+                                    className="h-full w-full object-cover rounded-xl"
+                                />
+                            </div>
+                            <p className="text-2xl bg-white text-black text-center py-5">
+                                {event.name}
+                            </p>
+                            <div className="flex justify-between px-4 text-center">
+                                <div>
+                                    <p className="text-black text-base pb-0">
+                                        {event.price}
+                                    </p>
+                                    <p className="pt-0 text-gray-500">Price</p>
+                                </div>
+                                <div>
+                                    <p className="text-black text-base pb-0">
+                                        {event.date}
+                                    </p>
+                                    <p className="pt-0 text-gray-500">Date</p>
+                                </div>
+                                <div>
+                                    <p className="text-black text-base pb-0">
+                                        {event.eventTime}
+                                    </p>
+                                    <p className="pt-0 text-gray-500">Time</p>
                                 </div>
                             </div>
-                        );
-                    })
-                ) : (
-                    <h1>Image is Loading</h1>
-                )}
+                            <NavLink
+                                to={`/eventDetails/${event.id}`}
+                                className="bg-black bg-gradient-to-r from-[#932AB1] to-[#6D37B6] text-center cursor-pointer rounded-xl px-[2rem] py-[0.5rem]"
+                            >
+                                View Details
+                            </NavLink>
+                        </motion.div>
+                    );
+                })}
             </div>
-        </section>
+        </div>
     );
 }
-
+// text-white cursor-pointer rounded-[50px] bg-gradient-to-r from-[#932AB1] to-[#6D37B6] m-auto
 export default TrendingEvents;

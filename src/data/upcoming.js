@@ -1,15 +1,7 @@
-// import ticket1 from "../assets/img/concert1_IMGCentury.webp";
-// import ticket2 from "../assets/img/concert2_IMGCentury.webp";
-// import ticket3 from "../assets/img/concert3_IMGCentury.webp";
-// import ticket4 from "../assets/img/concert4_IMGCentury.webp";
-// import ticket5 from "../assets/img/concert5_IMGCentury.webp";
-// import ticket6 from "../assets/img/concert6_IMGCentury.webp";
-
 export default [
     {
         id: 1,
-        // img: ticket1,
-        img: "https://cdn.pixabay.com/photo/2022/08/31/20/47/concert-7424190_1280.jpg",
+        img: "https://img.freepik.com/premium-photo/confetti-fireworks-crowd-music-festival_989072-16.jpg?semt=ais_hybrid",
         date: "21 Nov",
         name: "piano play",
         description: "It is a event organized by the dark concert band",
@@ -20,12 +12,10 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
-        delay: 0.5,
     },
     {
         id: 2,
-        // img: ticket2,
-        img: "https://cdn-p.smehost.net/sites/4788b7ad6b5448c1b90d9322361f98f3/wp-content/uploads/2024/08/Billy-Joel-MSG-Myrna-Suarez-Photo-FINAL-DSC04794-623x408.jpeg",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQanYd1yUVJ5J8xtlc1Uf6pXXML8q4sZa8xgQ&s",
         date: "21 Nov",
         name: "guitar concert",
         description: "It is a event organized by the dark concert band",
@@ -36,12 +26,10 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
-        delay: 0.7,
     },
     {
         id: 3,
-        // img: ticket3,
-        img: "https://abbavoyage.com/content/uploads/2024/01/ticket-type_dance-booths-2.png",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-UEYfB-Cq0ARJjy5hBjRdTxswTHkDxBdW6A&s",
         date: "21 Nov",
         name: "Live Performance",
         description: "It is a event organized by the dark concert band",
@@ -52,12 +40,11 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
-        delay: 0.9,
     },
     {
         id: 4,
-        // img: ticket4,
-        img: "https://www.shutterstock.com/image-photo/rock-concert-crowd-front-stage-260nw-2437627317.jpg",
+
+        img: "https://thumbs.dreamstime.com/b/rock-band-concert-rock-band-concert-created-artificial-intelligence-321697751.jpg",
         date: "21 Nov",
         name: "Rapper",
         description: "It is a event organized by the dark concert band",
@@ -67,13 +54,11 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
-        delay: 1.1,
         price: 300,
     },
     {
         id: 5,
-        // img: ticket5,
-        img: "https://ca-times.brightspotcdn.com/dims4/default/63578aa/2147483647/strip/true/crop/5000x3336+0+0/resize/1200x801!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fd2%2Fc2%2F45ae34644499b02720c7790d72ea%2Fgettyimages-1604947664.jpg",
+        img: "https://static.vecteezy.com/system/resources/thumbnails/024/569/707/small_2x/rock-music-concert-background-illustration-ai-generative-free-photo.jpg",
         date: "21 Nov",
         name: "Musian",
         description: "It is a event organized by the dark concert band",
@@ -83,13 +68,11 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
-        delay: 1.3,
         price: 300,
     },
     {
         id: 6,
-        // img: ticket6,
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBL71DjZCU0YZ9HJjk-kbBigWooftzYzPU5w&s",
+        img: "https://www.rollingstone.com/wp-content/uploads/2024/06/kendrick-lamar-everything.jpg?crop=0px%2C125px%2C1800px%2C1014px&resize=1600%2C900",
         date: "21 Nov",
         name: "Popular venue",
         description: "It is a event organized by the dark concert band",
@@ -99,7 +82,6 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
-        delay: 1.5,
         price: 300,
     },
 ];

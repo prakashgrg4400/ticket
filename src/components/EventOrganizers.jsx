@@ -1,7 +1,6 @@
 import style from "../assets/css/upcoming.module.css";
 import organizer from "../data/organizer";
 import Organizer from "./Organizer";
-import "../assets/css/organizer.css";
 
 function EventOrganizers() {
     return (
@@ -12,7 +11,7 @@ function EventOrganizers() {
                     <span className={`${style["right-title"]}`}>Organizer</span>
                 </h2>
             </div>
-            <div className="container parent-org">
+            <div className="container flex flex-wrap justify-between gap-[1rem] ">
                 {organizer.map((org, index) => {
                     return <Organizer key={index} {...org} />;
                 })}
