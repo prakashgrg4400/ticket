@@ -21,6 +21,7 @@ export default [
         remainingTicket: 10,
         soldOut: false,
         delay: 0.5,
+        status: "trending",
     },
     {
         id: 2,
@@ -37,6 +38,7 @@ export default [
         remainingTicket: 10,
         soldOut: false,
         delay: 0.5,
+        status: "trending",
     },
     {
         id: 3,
@@ -53,6 +55,7 @@ export default [
         remainingTicket: 10,
         soldOut: false,
         delay: 0.5,
+        status: "trending",
     },
     {
         id: 4,
@@ -68,6 +71,7 @@ export default [
         remainingTicket: 10,
         soldOut: false,
         delay: 0.5,
+        status: "trending",
         price: 300,
     },
     {
@@ -84,6 +88,7 @@ export default [
         remainingTicket: 10,
         soldOut: false,
         delay: 0.5,
+        status: "trending",
         price: 300,
     },
     {
@@ -100,6 +105,7 @@ export default [
         remainingTicket: 10,
         soldOut: false,
         delay: 0.5,
+        status: "trending",
         price: 300,
     },
 ];

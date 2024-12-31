@@ -63,7 +63,7 @@ function UpcomingEvents() {
                                     </div>
                                 </div>
                                 <NavLink
-                                    to={`/eventDetails/${event.id}`}
+                                    to={`/eventDetails/${event.id}?status=${event.status}`}
                                     className="bg-gradient-to-r from-[#932AB1] to-[#6D37B6] text-center cursor-pointer rounded-xl px-[2rem] py-[0.5rem]"
                                 >
                                     View Details

@@ -1,24 +1,27 @@
 /* eslint-disable no-unused-vars */
-import { useLoaderData } from "react-router";
+import { useLoaderData, useSearchParams } from "react-router";
 import { MdGroups2 } from "react-icons/md";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { headerAnimation, slideup } from "../animation/animate";
+import handleEventsData from "../utils/handleEventsData";
 
 function EventDetails() {
+    const { id } = useLoaderData();
+
+    let [searchParams] = useSearchParams();
+    let status = searchParams.get("status");
+
     const {
         img,
-        date,
-        name,
-        description,
-        location,
-        price,
-        remainingTicket,
-        soldOut,
         eventDate,
         eventTime,
-    } = useLoaderData();
+        name,
+        location,
+        description,
+        remainingTicket,
+    } = handleEventsData(status, id);
 
     useEffect(() => {
         window.scrollTo(0, 0);

@@ -35,8 +35,8 @@ function TrendingEvents() {
                                     className="h-full w-full object-cover rounded-xl"
                                 />
                             </div>
-                            <p className="text-2xl bg-white text-black text-center py-5 line-clamp-1">
-                                {event.name}
+                            <p className="text-2xl bg-white text-black text-center py-5">
+                                <div className="line-clamp-1">{event.name}</div>
                             </p>
                             <div className="flex justify-between px-4 text-center">
                                 <div>
@@ -59,7 +59,7 @@ function TrendingEvents() {
                                 </div>
                             </div>
                             <NavLink
-                                to={`/eventDetails/${event.id}`}
+                                to={`/eventDetails/${event.id}?status=${event.status}`}
                                 className="bg-black bg-gradient-to-r from-[#932AB1] to-[#6D37B6] text-center cursor-pointer rounded-xl px-[2rem] py-[0.5rem]"
                             >
                                 View Details

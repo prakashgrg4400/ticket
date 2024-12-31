@@ -3,7 +3,7 @@ export default [
         id: 1,
         img: "https://img.freepik.com/premium-photo/confetti-fireworks-crowd-music-festival_989072-16.jpg?semt=ais_hybrid",
         date: "21 Nov",
-        name: "piano play piano m;m;mlm;l",
+        name: "piano play piano",
         description: "It is a event organized by the dark concert band",
         eventDate: "26 Oct 2025",
         eventTime: "5:38pm",
@@ -12,12 +12,13 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
+        status: "upcoming",
     },
     {
         id: 2,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQanYd1yUVJ5J8xtlc1Uf6pXXML8q4sZa8xgQ&s",
         date: "21 Nov",
-        name: "guitar concert",
+        name: " guitar concertguitar concertguitar concertguitar concertguitar concertguitar concert",
         description: "It is a event organized by the dark concert band",
         eventDate: "26 Oct 2025",
         eventTime: "5:38pm",
@@ -26,6 +27,7 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
+        status: "upcoming",
     },
     {
         id: 3,
@@ -40,6 +42,7 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
+        status: "upcoming",
     },
     {
         id: 4,
@@ -54,6 +57,7 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
+        status: "upcoming",
         price: 300,
     },
     {
@@ -68,6 +72,7 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
+        status: "upcoming",
         price: 300,
     },
     {
@@ -82,6 +87,7 @@ export default [
         totalTicket: 50,
         remainingTicket: 10,
         soldOut: false,
+        status: "upcoming",
         price: 300,
     },
 ];
