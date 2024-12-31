@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 import tailwindCss3d from "tailwindcss-3d";
+// import { createRequire } from "module";
+
+// const require = createRequire(import.meta.url);
+
 export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
@@ -52,5 +56,8 @@ export default {
             },
         },
     },
-    plugins: [tailwindCss3d({ legacy: true })],
+    plugins: [
+        tailwindCss3d({ legacy: true }),
+        // require("@tailwindcss/line-clamp"),
+    ],
 };

@@ -3,7 +3,7 @@ export default [
         id: 1,
         img: "https://img.freepik.com/premium-photo/confetti-fireworks-crowd-music-festival_989072-16.jpg?semt=ais_hybrid",
         date: "21 Nov",
-        name: "piano play",
+        name: "piano play piano m;m;mlm;l",
         description: "It is a event organized by the dark concert band",
         eventDate: "26 Oct 2025",
         eventTime: "5:38pm",

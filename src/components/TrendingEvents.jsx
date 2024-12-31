@@ -35,7 +35,7 @@ function TrendingEvents() {
                                     className="h-full w-full object-cover rounded-xl"
                                 />
                             </div>
-                            <p className="text-2xl bg-white text-black text-center py-5">
+                            <p className="text-2xl bg-white text-black text-center py-5 line-clamp-1">
                                 {event.name}
                             </p>
                             <div className="flex justify-between px-4 text-center">
