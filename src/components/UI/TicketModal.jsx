@@ -16,7 +16,7 @@ function TicketModal({ setTicketModal }) {
                 className="fixed top-0 left-0 h-screen w-screen bg-[rgba(0,0,0,0.7)] z-[300]"
             ></motion.div>
             <motion.div
-                variants={fadeInAndOut(0.5)}
+                variants={fadeInAndOut(0.3)}
                 initial="initial"
                 animate="animate"
                 exit={"exit"}
