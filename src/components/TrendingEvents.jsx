@@ -2,7 +2,7 @@ import event from "../data/event";
 import style from "../assets/css/upcoming.module.css";
 import { NavLink } from "react-router";
 import { motion } from "framer-motion";
-import { slideleft } from "../animation/animate";
+import { slideleft, slideright } from "../animation/animate";
 
 function TrendingEvents() {
     return (
@@ -24,7 +24,11 @@ function TrendingEvents() {
                         <motion.div
                             key={event.id}
                             className="rounded-xl relative border-2 border-gray-300 flex flex-col shadow-[5px_5px_5px_0_gray] "
-                            variants={slideleft(event.delay)}
+                            variants={
+                                event.id < 4
+                                    ? slideright(event.delay)
+                                    : slideleft(event.delay)
+                            }
                             initial="initial"
                             whileInView="animate"
                         >
