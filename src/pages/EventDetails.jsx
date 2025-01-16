@@ -4,7 +4,7 @@ import { MdGroups2 } from "react-icons/md";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { headerAnimation, slideup } from "../animation/animate";
+import { fadeInAndOut, headerAnimation, slideup } from "../animation/animate";
 import handleEventsData from "../utils/handleEventsData";
 import Ticket from "../components/EventInfo/Ticket";
 import Details from "../components/EventInfo/Details";
@@ -41,7 +41,12 @@ function EventDetails() {
         <>
             <header className="bg-eventDetailbg2 bg-no-repeat bg-center h-[40vh] relative">
                 <div className="h-full w-full bg-purple-900 opacity-40"> </div>
-                <div className="bg-white min-h-[30vh] flex flex-col justify-center items-center w-[50%] absolute left-1/2 -translate-x-1/2 top-[70%]  ">
+                <motion.div
+                    variants={headerAnimation(0.6, "70%")}
+                    initial="initial"
+                    animate="animate"
+                    className="bg-white min-h-[30vh] flex flex-col justify-center items-center w-[50%] absolute left-1/2 -translate-x-1/2 top-[70%]  "
+                >
                     <h2 className="text-4xl border-b-[3px] pb-4 mb-4 border-b-[#6B30BE] text-[#6B30BE]">
                         {name.toUpperCase()}
                     </h2>
@@ -59,13 +64,23 @@ function EventDetails() {
                             <p className="opacity-50">{location}</p>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </header>
             <section className="relative top-[30vh] mb-[300px] flex flex-col gap-6 justify-center items-center">
-                <h2 className="text-4xl text-[#6B30BE]">Event Info</h2>
+                <motion.h2
+                    variants={slideup(1.0)}
+                    initial="initial"
+                    animate="animate"
+                    className="text-4xl text-[#6B30BE]"
+                >
+                    Event Info
+                </motion.h2>
                 <div className=" flex flex-col gap-6 bg-white max-w-[50vw] p-6">
                     <div className="flex gap-4">
-                        <button
+                        <motion.button
+                            variants={slideup(1.2)}
+                            initial="initial"
+                            animate="animate"
                             onClick={() => {
                                 setShowDetails(false);
                                 setShowOrganizer(false);
@@ -77,8 +92,11 @@ function EventDetails() {
                             } text-white px-4 py-2 rounded-md cursor-pointer text-sm`}
                         >
                             Ticket
-                        </button>
-                        <button
+                        </motion.button>
+                        <motion.button
+                            variants={slideup(1.4)}
+                            initial="initial"
+                            animate="animate"
                             onClick={() => {
                                 setShowDetails(false);
                                 setShowOrganizer(false);
@@ -90,8 +108,11 @@ function EventDetails() {
                             } text-white px-4 py-2 rounded-md cursor-pointer text-sm`}
                         >
                             Seat View
-                        </button>
-                        <button
+                        </motion.button>
+                        <motion.button
+                            variants={slideup(1.6)}
+                            initial="initial"
+                            animate="animate"
                             onClick={() => {
                                 setShowDetails(true);
                                 setShowOrganizer(false);
@@ -103,8 +124,11 @@ function EventDetails() {
                             } text-white px-4 py-2 rounded-md cursor-pointer text-sm`}
                         >
                             Details
-                        </button>
-                        <button
+                        </motion.button>
+                        <motion.button
+                            variants={slideup(1.8)}
+                            initial="initial"
+                            animate="animate"
                             onClick={() => {
                                 setShowDetails(false);
                                 setShowOrganizer(true);
@@ -116,9 +140,13 @@ function EventDetails() {
                             } text-white px-4 py-2 rounded-md cursor-pointer text-sm`}
                         >
                             Organizer
-                        </button>
+                        </motion.button>
                     </div>
-                    <div>
+                    <motion.div
+                        variants={slideup(2)}
+                        initial="initial"
+                        animate="animate"
+                    >
                         {(showTicket && <Ticket img={img} />) ||
                             (showSeatView && (
                                 <SeatView seatView={seatView} />
@@ -136,7 +164,7 @@ function EventDetails() {
                                     organizerAddress={organizerAddress}
                                 />
                             ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
             <section className=" flex justify-center items-center mb-[200px]">
