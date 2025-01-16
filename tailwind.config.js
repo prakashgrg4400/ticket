@@ -41,6 +41,8 @@ export default {
                 contactbg: "url('./assets/img/concert1.jpg')",
                 eventDetailbg:
                     "url('./assets/img/eventDetailBackgroundImage3.jpg')",
+                eventDetailbg2:
+                    "url('https://wallpapers.com/images/hd/brookly-bridge-sunset-new-york-computer-9ckb3dpqekyq64i9.jpg')",
             },
             backgroundPosition: {
                 // centerTop: "center top 1rem",

@@ -9,6 +9,7 @@ import {
     Route,
     RouterProvider,
 } from "react-router";
+import Test from "./components/Test/Test";
 
 const Events = lazy(() => import("./pages/Events"));
 const Home = lazy(() => import("./pages/Home"));
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
                 loader={eventDetailsLoader}
                 element={<EventDetails />}
             />
+            <Route path="/test" element={<Test />} />
         </Route>
     )
 );

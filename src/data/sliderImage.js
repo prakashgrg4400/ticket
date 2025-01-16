@@ -22,7 +22,7 @@ export default [
         urls: slider3,
     },
     {
-        title: "Thetre time",
+        title: "Theatre time",
         description: "this is third slide",
         urls: slider4,
     },
