@@ -10,6 +10,8 @@ import {
     RouterProvider,
 } from "react-router";
 import Test from "./components/Test/Test";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 const Events = lazy(() => import("./pages/Events"));
 const Home = lazy(() => import("./pages/Home"));
@@ -36,6 +38,8 @@ const router = createBrowserRouter(
                 loader={eventDetailsLoader}
                 element={<EventDetails />}
             />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/test" element={<Test />} />
         </Route>
     )

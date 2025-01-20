@@ -45,7 +45,7 @@ function EventDetails() {
                     variants={headerAnimation(0.6, "70%")}
                     initial="initial"
                     animate="animate"
-                    className="bg-white min-h-[30vh] flex flex-col justify-center items-center w-[50%] absolute left-1/2 -translate-x-1/2 top-[70%]  "
+                    className="bg-white min-h-[30vh] flex flex-col justify-center items-center w-[50%] absolute left-1/2 -translate-x-1/2 top-[70%]   "
                 >
                     <h2 className="text-4xl border-b-[3px] pb-4 mb-4 border-b-[#6B30BE] text-[#6B30BE]">
                         {name.toUpperCase()}
@@ -168,7 +168,7 @@ function EventDetails() {
                 </div>
             </section>
             <section className=" flex justify-center items-center mb-[200px]">
-                <div className="bg-[url('https://images.unsplash.com/photo-1701099153549-a94513b57f60?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] w-[70vw] min-h-[80vh] bg-no-repeat bg-cover bg-center ">
+                <div className="bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQanYd1yUVJ5J8xtlc1Uf6pXXML8q4sZa8xgQ&s')] w-[70vw] min-h-[80vh] bg-no-repeat bg-cover bg-center ">
                     <h2 className="text-white text-center mt-20 text-4xl font-normal">
                         Buy Tickets and Enjoy
                     </h2>
