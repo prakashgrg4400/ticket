@@ -1,14 +1,24 @@
 import { motion } from "framer-motion";
-import { headerAnimation } from "../animation/animate";
+import {
+    headerAnimation,
+    slideleft,
+    slideright,
+    slideup,
+} from "../animation/animate";
 import Footer from "../components/Footer";
 import { useParams, useSearchParams } from "react-router";
 import handleEventsData from "../utils/handleEventsData";
+import { useEffect } from "react";
 
 function Checkout() {
     const { id } = useParams();
     const [searchParams] = useSearchParams();
 
     const currentTicket = handleEventsData(searchParams.get("status"), id * 1);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <>
@@ -26,18 +36,33 @@ function Checkout() {
                 </motion.div>
             </header>
             <section className="mt-[150px] mb-24 flex flex-col items-center justify-center ">
-                <p className="text-2xl font-semibold text-gray-500">
+                <motion.p
+                    variants={slideup(0.8)}
+                    initial="initial"
+                    animate="animate"
+                    className="text-2xl font-semibold text-gray-500"
+                >
                     Fill Your information
-                </p>
+                </motion.p>
                 <div className="w-[75%] mt-12">
-                    <p className="text-xl text-gray-600 mb-4">
+                    <motion.p
+                        variants={slideup(1.0)}
+                        initial="initial"
+                        animate="animate"
+                        className="text-xl text-gray-600 mb-4"
+                    >
                         Billing Address
-                    </p>
+                    </motion.p>
                     <form
                         action=""
                         className="grid grid-cols-1 md:grid-cols-3 w-full gap-2 "
                     >
-                        <div className="  md:col-span-2 p-4 flex flex-col gap-6 ">
+                        <motion.div
+                            variants={slideright(1.2)}
+                            initial="initial"
+                            animate="animate"
+                            className="  md:col-span-2 p-4 flex flex-col gap-6 "
+                        >
                             <div>
                                 <p className="text-sm font-semibold mb-2 text-gray-600">
                                     Full Names <sup>*</sup>
@@ -150,9 +175,14 @@ function Checkout() {
                                     className="w-full font-light text-sm p-2"
                                 />
                             </div>
-                        </div>
+                        </motion.div>
                         {/* Ticket */}
-                        <div className="bg-[#6B30BE] text-white px-4 py-6 flex flex-col gap-4">
+                        <motion.div
+                            variants={slideleft(1.2)}
+                            initial="initial"
+                            animate="animate"
+                            className="bg-[#6B30BE] text-white px-4 py-6 flex flex-col gap-4"
+                        >
                             <div>
                                 <p className="text-xl text-white border-b-2 pb-3">
                                     Tickets
@@ -222,7 +252,7 @@ function Checkout() {
                                     className="w-full"
                                 />
                             </div>
-                        </div>
+                        </motion.div>
                         <button
                             type="submit"
                             className="bg-red-600 opacity-90 md:place-self-end hover:bg-red-700 text-white py-1 px-4 rounded-md md:col-span-3 mt-6 "

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { headerAnimation } from "../animation/animate";
+import { headerAnimation, slideup } from "../animation/animate";
 import Footer from "../components/Footer";
 import { NavLink, useParams, useSearchParams } from "react-router";
 import myCart from "../data/cartData";
@@ -62,12 +62,21 @@ function Cart() {
             <section className="mt-[150px] mb-24 flex flex-col justify-center items-center gap-8  ">
                 {myCart.length > 0 ? (
                     <>
-                        <p className="text-gray-500 text-xl ">
+                        <motion.p
+                            variants={slideup(0.8)}
+                            initial="initial"
+                            animate="animate"
+                            className="text-gray-500 text-xl "
+                        >
                             Your ticket cart lists
-                        </p>
+                        </motion.p>
                         <div className="min-w-[1000px] bg-[#F0F0F0] flex flex-col gap-6">
                             <table className="w-full">
-                                <thead>
+                                <motion.thead
+                                    variants={slideup(1.0)}
+                                    initial="initial"
+                                    animate="animate"
+                                >
                                     <tr className="bg-[#902CB2] text-white ">
                                         <th className="py-4">Event</th>
                                         <th>Package</th>
@@ -76,8 +85,12 @@ function Cart() {
                                         <th>Total Amount</th>
                                         <th>Action</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                </motion.thead>
+                                <motion.tbody
+                                    variants={slideup(1.2)}
+                                    initial="initial"
+                                    animate="animate"
+                                >
                                     {myCart.map((cart) => {
                                         return (
                                             <tr
@@ -112,8 +125,12 @@ function Cart() {
                                             </tr>
                                         );
                                     })}
-                                </tbody>
-                                <tfoot>
+                                </motion.tbody>
+                                <motion.tfoot
+                                    variants={slideup(1.4)}
+                                    initial="initial"
+                                    animate="animate"
+                                >
                                     <tr className="bg-[#CCCCCC] text-[#6C6C6C] font-bold ">
                                         <td
                                             colSpan={4}
@@ -139,9 +156,14 @@ function Cart() {
                                             )}
                                         </td>
                                     </tr>
-                                </tfoot>
+                                </motion.tfoot>
                             </table>
-                            <div className="flex justify-between ">
+                            <motion.div
+                                variants={slideup(1.6)}
+                                initial="initial"
+                                animate="animate"
+                                className="flex justify-between "
+                            >
                                 <NavLink
                                     to={"/events"}
                                     className="bg-red-600 opacity-90 hover:bg-red-700 text-white py-1 px-4 rounded-md"
@@ -151,7 +173,7 @@ function Cart() {
                                 {/* <button className="bg-red-600 opacity-90 hover:bg-red-700 text-white py-1 px-4 rounded-md">
                             Checkout
                         </button> */}
-                            </div>
+                            </motion.div>
                         </div>
                     </>
                 ) : (
