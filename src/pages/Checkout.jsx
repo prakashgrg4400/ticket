@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
 import { headerAnimation } from "../animation/animate";
 import Footer from "../components/Footer";
+import { useParams, useSearchParams } from "react-router";
+import handleEventsData from "../utils/handleEventsData";
 
 function Checkout() {
+    const { id } = useParams();
+    const [searchParams] = useSearchParams();
+
+    const currentTicket = handleEventsData(searchParams.get("status"), id * 1);
+
     return (
         <>
             <header className="bg-eventDetailbg2 bg-no-repeat bg-center h-[40vh] relative ">
@@ -32,7 +39,7 @@ function Checkout() {
                     >
                         <div className="  md:col-span-2 p-4 flex flex-col gap-6 ">
                             <div>
-                                <p className="text-sm font-semibold opacity-70 mb-2">
+                                <p className="text-sm font-semibold mb-2 text-gray-600">
                                     Full Names <sup>*</sup>
                                 </p>
                                 <input
@@ -44,7 +51,7 @@ function Checkout() {
                                 />
                             </div>
                             <div>
-                                <p className="text-sm font-semibold opacity-70 mb-2">
+                                <p className="text-sm font-semibold mb-2 text-gray-600">
                                     Address <sup>*</sup>
                                 </p>
                                 <input
@@ -56,7 +63,7 @@ function Checkout() {
                             </div>
                             <div className="grid grid-cols-4 gap-6">
                                 <div>
-                                    <p className="text-sm font-semibold opacity-70 mb-2">
+                                    <p className="text-sm font-semibold mb-2 text-gray-600">
                                         Country<sup>*</sup>
                                     </p>
                                     <select
@@ -71,7 +78,7 @@ function Checkout() {
                                     </select>
                                 </div>
                                 <div>
-                                    <p className="text-sm font-semibold opacity-70 mb-2">
+                                    <p className="text-sm font-semibold mb-2 text-gray-600">
                                         Country<sup>*</sup>
                                     </p>
                                     <select
@@ -86,7 +93,7 @@ function Checkout() {
                                     </select>
                                 </div>
                                 <div>
-                                    <p className="text-sm font-semibold opacity-70 mb-2">
+                                    <p className="text-sm font-semibold mb-2 text-gray-600">
                                         City<sup>*</sup>
                                     </p>
                                     <input
@@ -97,7 +104,7 @@ function Checkout() {
                                     />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-semibold opacity-70 mb-2">
+                                    <p className="text-sm font-semibold mb-2 text-gray-600">
                                         PostCode<sup>*</sup>
                                     </p>
                                     <input
@@ -110,7 +117,7 @@ function Checkout() {
                             </div>
                             <div className="grid grid-cols-2 gap-6">
                                 <div>
-                                    <p className="text-sm font-semibold opacity-70 mb-2">
+                                    <p className="text-sm font-semibold mb-2 text-gray-600">
                                         Email Address<sup>*</sup>
                                     </p>
                                     <input
@@ -121,7 +128,7 @@ function Checkout() {
                                     />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-semibold opacity-70 mb-2">
+                                    <p className="text-sm font-semibold mb-2 text-gray-600">
                                         Phone<sup>*</sup>
                                     </p>
                                     <input
@@ -133,7 +140,7 @@ function Checkout() {
                                 </div>
                             </div>
                             <div>
-                                <p className="text-sm font-semibold opacity-70 mb-2">
+                                <p className="text-sm font-semibold mb-2 text-gray-600">
                                     Full Name 1<sup>*</sup>
                                 </p>
                                 <input
@@ -147,54 +154,66 @@ function Checkout() {
                         {/* Ticket */}
                         <div className="bg-[#6B30BE] text-white px-4 py-6 flex flex-col gap-4">
                             <div>
-                                <p className="text-xl border-b-2 pb-3">
+                                <p className="text-xl text-white border-b-2 pb-3">
                                     Tickets
                                 </p>
                             </div>
                             <div className="flex justify-between">
-                                <p className="text-xs font-semibold">
-                                    Malaysian (With Mykad) - Adult X 1
+                                <p className="text-xs text-white font-semibold">
+                                    {currentTicket.name} - Adult X 1
                                 </p>
-                                <p className="text-xs font-semibold">RM 26</p>
+                                <p className="text-xs font-semibold text-white">
+                                    Rs.{currentTicket.price}
+                                </p>
                             </div>
                             <div className="flex justify-between">
-                                <p className="text-xs font-semibold">Total</p>
-                                <p className="text-xs font-semibold">RM 26</p>
+                                <p className="text-xs font-semibold text-white">
+                                    Total
+                                </p>
+                                <p className="text-xs font-semibold text-white">
+                                    RM 26
+                                </p>
                             </div>
                             <div className="flex justify-between">
-                                <p className="text-xs font-semibold">
+                                <p className="text-xs font-semibold text-white">
                                     Service Charge
                                 </p>
-                                <p className="text-xs font-semibold">RM 26</p>
+                                <p className="text-xs font-semibold text-white">
+                                    RM 26
+                                </p>
                             </div>
                             <div className="flex justify-between">
-                                <p className="text-xs font-semibold">
+                                <p className="text-xs font-semibold text-white">
                                     Discount / Offer
                                 </p>
-                                <p className="text-xs font-semibold">RM 26</p>
+                                <p className="text-xs font-semibold text-white">
+                                    RM 26
+                                </p>
                             </div>
-                            <div className="flex gap-2">
+                            <div className="flex flex-wrap gap-2">
                                 <input
                                     type="text"
                                     placeholder="Coupon/Discount Code"
                                     className=" font-light text-sm p-2"
                                 />
-                                <button className="bg-red-600 opacity-90 hover:bg-red-700 text-white py-1 px-4 rounded-md ">
+                                <button className="bg-red-600  opacity-90 hover:bg-red-700 text-white py-1 px-4 rounded-md ">
                                     Apply
                                 </button>
                             </div>
                             <div className="flex justify-between">
-                                <p className="text-xs font-extrabold">
+                                <p className="text-xs font-extrabold text-white">
                                     Grand Total
                                 </p>
-                                <p className="text-xs font-extrabold">RM 26</p>
+                                <p className="text-xs font-extrabold text-white">
+                                    RM 26
+                                </p>
                             </div>
-                            <p className="text-xl border-b-2 pb-3">
+                            <p className="text-xl border-b-2 pb-3 text-white">
                                 Payment Method
                             </p>
                             <div>
                                 <input type="checkbox" name="" id="" />
-                                <span className="text-xs font-semibold">
+                                <span className="text-xs font-semibold text-white">
                                     Online Payment
                                 </span>
                                 <img

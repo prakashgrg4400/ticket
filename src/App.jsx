@@ -38,8 +38,8 @@ const router = createBrowserRouter(
                 loader={eventDetailsLoader}
                 element={<EventDetails />}
             />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/cart/:id" element={<Cart />} />
+            <Route path="/checkout/:id" element={<Checkout />} />
             <Route path="/test" element={<Test />} />
         </Route>
     )

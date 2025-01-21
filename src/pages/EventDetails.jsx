@@ -1,5 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { useLoaderData, useSearchParams } from "react-router";
+import {
+    redirect,
+    useLoaderData,
+    useNavigate,
+    useSearchParams,
+} from "react-router";
 import { MdGroups2 } from "react-icons/md";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
@@ -13,6 +18,8 @@ import Organizer from "../components/EventInfo/Organizer";
 
 function EventDetails() {
     const { id } = useLoaderData();
+    const [numberOfTickest, setNumberOfTickets] = useState(1);
+    const navigate = useNavigate();
 
     let [searchParams] = useSearchParams();
     let status = searchParams.get("status");
@@ -37,6 +44,14 @@ function EventDetails() {
     const [showSeatView, setShowSeatView] = useState(false);
     const [showDetails, setShowDetails] = useState(false);
     const [showOrganizer, setShowOrganizer] = useState(false);
+
+    const handleForm = (e) => {
+        e.preventDefault();
+        console.log(numberOfTickest);
+        console.log("Prakash");
+        return navigate(`/cart/${id}?quantity=${numberOfTickest}&status=${status}`);
+    };
+
     return (
         <>
             <header className="bg-eventDetailbg2 bg-no-repeat bg-center h-[40vh] relative">
@@ -48,7 +63,7 @@ function EventDetails() {
                     className="bg-white min-h-[30vh] flex flex-col justify-center items-center w-[50%] absolute left-1/2 -translate-x-1/2 top-[70%]   "
                 >
                     <h2 className="text-4xl border-b-[3px] pb-4 mb-4 border-b-[#6B30BE] text-[#6B30BE]">
-                        {name.toUpperCase()}
+                        {name.toUpperCase() || ""}
                     </h2>
                     <div className=" gap-8 flex justify-around bg-[#F0F0F0] px-[2rem] py-[1rem] my-[1rem] ">
                         <div className="flex items-center gap-2">
@@ -208,6 +223,7 @@ function EventDetails() {
                                 <form
                                     action=""
                                     className="flex flex-col gap-[2rem] relative"
+                                    onSubmit={handleForm}
                                 >
                                     <div className="flex gap-[1rem] items-center ">
                                         <label htmlFor="" id="quantity">
@@ -218,6 +234,13 @@ function EventDetails() {
                                             name=""
                                             id=""
                                             className="outline-none py-[0.5rem] px-[1rem] text-black rounded-[50px] "
+                                            value={numberOfTickest}
+                                            onChange={(e) => {
+                                                setNumberOfTickets(
+                                                    e.target.value
+                                                );
+                                                console.log(e.target.value);
+                                            }}
                                         />
                                     </div>
                                     <input

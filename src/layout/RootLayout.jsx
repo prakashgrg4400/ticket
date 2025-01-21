@@ -60,7 +60,7 @@ function RootLayout() {
                     >
                         Ticket
                     </button> */}
-                    <NavLink to={"/cart"} className="ticket">
+                    <NavLink to={"/cart/none/?status=none"} className="ticket">
                         Ticket
                     </NavLink>
                 </div>
