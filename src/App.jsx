@@ -10,14 +10,19 @@ import {
     RouterProvider,
 } from "react-router";
 import Test from "./components/Test/Test";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const Events = lazy(() => import("./pages/Events"));
 const Home = lazy(() => import("./pages/Home"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const EventDetails = lazy(() => import("./pages/EventDetails"));
+const Cart = lazy(() => import("./pages/Cart"));
+const Checkout = lazy(() => import("./pages/Checkout"));
+const ConfirmPayment = lazy(() => import("./pages/ConfirmPayment"));
+const SuccessPayment = lazy(() => import("./pages/SuccessPayment"));
+const FailurePayment = lazy(() => import("./pages/FailurePayment"));
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -40,6 +45,9 @@ const router = createBrowserRouter(
             />
             <Route path="/cart/:id" element={<Cart />} />
             <Route path="/checkout/:id" element={<Checkout />} />
+            <Route path="/confirmPayment" element={<ConfirmPayment />} />
+            <Route path="/success" element={<SuccessPayment />} />
+            <Route path="/failure" element={<FailurePayment />} />
             <Route path="/test" element={<Test />} />
         </Route>
     )
@@ -48,7 +56,9 @@ const router = createBrowserRouter(
 function App() {
     return (
         <>
-            <RouterProvider router={router} />
+            <Provider store={store}>
+                <RouterProvider router={router} />
+            </Provider>
         </>
     );
 }

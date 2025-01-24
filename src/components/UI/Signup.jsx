@@ -16,7 +16,7 @@ function Signup() {
             <p className="text-center opacity-50">
                 or use your email for registration
             </p>
-            <form action="" className="flex flex-col gap-[1rem] mt-[1rem]">
+            <form action="#" className="flex flex-col gap-[1rem] mt-[1rem]">
                 <input
                     type="text"
                     name=""
