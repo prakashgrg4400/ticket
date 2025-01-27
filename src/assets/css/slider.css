@@ -15,12 +15,23 @@
     background-color: black;
 }
 
+.image-slider {
+    /* height: 100%; */
+    /* width: 100%; */
+    position: absolute;
+    top: 0;
+    left: 100%;
+    border: 2px solid rgb(32, 31, 31);
+}
+
 .active {
     /* display: block; */
     transition: all 0.5s ease-in-out;
     /* top: 0; */
     /* scale: 1; */
     opacity: 1;
+    position: relative;
+    left: 0;
 }
 
 .inactive {
@@ -32,14 +43,6 @@
 .slides {
     height: var(--heights);
     width: var(--widths);
-}
-.image-slider {
-    /* height: 100%; */
-    /* width: 100%; */
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 2px solid rgb(32, 31, 31);
 }
 
 .slide-image {

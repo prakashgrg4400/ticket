@@ -15,7 +15,7 @@ function Navbar({ handleModal }) {
             <motion.div
                 variants={slidedown(0.5)}
                 initial="initial"
-                className="navbar"
+                className="navbar "
                 animate={"animate"}
             >
                 <div className="logo-icon">

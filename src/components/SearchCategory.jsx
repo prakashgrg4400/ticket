@@ -13,7 +13,9 @@ function SearchCategory() {
                 className="container"
             >
                 <h2>Search Event by Category</h2>
-                <p>Dont forget to Miss Event</p>
+                <p className="text-[0.8rem] text-[#b2b2b2] py-[0.7rem]">
+                    Dont forget to Miss Event
+                </p>
                 <Search />
             </motion.div>
         </section>

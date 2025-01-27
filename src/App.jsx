@@ -23,6 +23,7 @@ const Checkout = lazy(() => import("./pages/Checkout"));
 const ConfirmPayment = lazy(() => import("./pages/ConfirmPayment"));
 const SuccessPayment = lazy(() => import("./pages/SuccessPayment"));
 const FailurePayment = lazy(() => import("./pages/FailurePayment"));
+const UserDashboard = lazy(() => import("./pages/UserDashboard"));
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -48,6 +49,7 @@ const router = createBrowserRouter(
             <Route path="/confirmPayment" element={<ConfirmPayment />} />
             <Route path="/success" element={<SuccessPayment />} />
             <Route path="/failure" element={<FailurePayment />} />
+            <Route path="/userDashboard" element={<UserDashboard />} />
             <Route path="/test" element={<Test />} />
         </Route>
     )

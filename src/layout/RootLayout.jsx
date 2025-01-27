@@ -12,9 +12,16 @@ import Navbar from "../components/navbar/Navbar";
 // import TicketModal from "../components/UI/TicketModal";
 
 function RootLayout() {
-    const location = useLocation();
-    console.log(location);
+    const { pathname } = useLocation();
     const [isModalOpen, setIsModelOpen] = useState(false);
+    const excludePath = ["/failure", "/success", "/userDashboard"];
+
+    // console.log(
+    //     "pathname = ",
+    //     pathname,
+    //     " includes ===> ",
+    //     excludePath.includes(pathname)
+    // );
     // const [openMenu, setOpenMenu] = useState(false);
     // const [ticketModal, setTicketModal] = useState(false);
 
@@ -23,7 +30,9 @@ function RootLayout() {
     }
     return (
         <>
-            <Navbar handleModal={handleModal} />
+            {!excludePath.includes(pathname) && (
+                <Navbar handleModal={handleModal} />
+            )}
 
             {/* <Modal /> */}
 
