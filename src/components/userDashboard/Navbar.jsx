@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import logo from "../../assets/img/logo.jpg";
 
 function Navbar() {
@@ -11,26 +12,38 @@ function Navbar() {
                         className="h-full w-full  rounded-full object-cover"
                     />
                 </div>
-                <ul>
+                <ul className="flex gap-4">
                     <li>
-                        <a href="" className="text-normal font-normal">
+                        <NavLink
+                            to={"/"}
+                            className="text-normal font-normal text-white hover:border-b-[3px]"
+                        >
                             Home
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="" className="text-normal font-normal">
+                        <NavLink
+                            to={"/events"}
+                            className="text-normal font-normal text-white hover:border-b-[3px]"
+                        >
                             Event
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="" className="text-normal font-normal">
-                            Gallery
-                        </a>
+                        <NavLink
+                            to={"/about"}
+                            className="text-normal font-normal text-white hover:border-b-[3px]"
+                        >
+                            About us
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="" className="text-normal font-normal">
+                        <NavLink
+                            to={"/contact"}
+                            className="text-normal font-normal text-white hover:border-b-[3px]"
+                        >
                             Contact Us
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </div>

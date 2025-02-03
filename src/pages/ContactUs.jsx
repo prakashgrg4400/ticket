@@ -4,10 +4,12 @@ import MessageForm from "../components/MessageForm";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import { headerAnimation } from "../animation/animate";
+import NavbarLayout from "../layout/NavbarLayout";
 
 function ContactUs() {
     return (
         <>
+            <NavbarLayout />
             <header className="bg-contactbg h-[60vh] w-full bg-white bg-no-repeat bg-cover bg-center">
                 <div className="h-full w-full bg-[#381F3D] opacity-90">
                     <motion.h2

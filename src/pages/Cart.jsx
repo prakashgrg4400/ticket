@@ -5,6 +5,7 @@ import { NavLink, useParams, useSearchParams } from "react-router";
 import myCart from "../data/cartData";
 import handleEventsData from "../utils/handleEventsData";
 import { useEffect } from "react";
+import NavbarLayout from "../layout/NavbarLayout";
 
 function Cart() {
     const [searchParam] = useSearchParams();
@@ -46,6 +47,7 @@ function Cart() {
 
     return (
         <>
+            <NavbarLayout />
             <header className="bg-eventDetailbg2 bg-no-repeat bg-center h-[40vh] relative">
                 <div className="h-full w-full bg-purple-900 opacity-40"> </div>
                 <motion.div

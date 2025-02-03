@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { slideleft } from "../animation/animate";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import NavbarLayout from "../layout/NavbarLayout";
 
 function ConfirmPayment() {
     const {
@@ -30,6 +31,7 @@ function ConfirmPayment() {
 
     return (
         <>
+            <NavbarLayout />
             <header className="bg-eventDetailbg2 bg-no-repeat bg-center h-[40vh] relative ">
                 <div className="h-full w-full bg-purple-900 opacity-40"> </div>
                 <motion.div
@@ -49,7 +51,7 @@ function ConfirmPayment() {
                         variants={slideup(0.8)}
                         initial="initial"
                         animate="animate"
-                        className="text-xl font-normal text-gray-500"
+                        className="text-xl font-semibold text-gray-400"
                     >
                         Check your Details properly
                     </motion.p>
@@ -64,57 +66,57 @@ function ConfirmPayment() {
                                 Billing Address
                             </p>
                             <div className="flex flex-col gap-6">
-                                <p className="text-xs text-white font-semibold">
+                                <p className="text-sm text-white font-normal">
                                     Full Name :{" "}
-                                    <span className="text-xs text-white font-semibold">
+                                    <span className="text-sm text-white font-normal">
                                         {fullName}
                                     </span>
                                 </p>
-                                <p className="text-xs text-white font-semibold">
+                                <p className="text-sm text-white font-normal">
                                     Address :{" "}
-                                    <span className="text-xs text-white font-semibold">
+                                    <span className="text-sm text-white font-normal">
                                         {address}
                                     </span>
                                 </p>
-                                <p className="text-xs text-white font-semibold">
+                                <p className="text-sm text-white font-normal">
                                     Country :{" "}
-                                    <span className="text-xs text-white font-semibold">
+                                    <span className="text-sm text-white font-normal">
                                         {country}
                                     </span>
                                 </p>
-                                <p className="text-xs text-white font-semibold">
+                                <p className="text-sm text-white font-normal">
                                     State :{" "}
-                                    <span className="text-xs text-white font-semibold">
+                                    <span className="text-sm text-white font-normal">
                                         {state}
                                     </span>
                                 </p>
-                                <p className="text-xs text-white font-semibold">
+                                <p className="text-sm text-white font-normal">
                                     City :{" "}
-                                    <span className="text-xs text-white font-semibold">
+                                    <span className="text-sm text-white font-normal">
                                         {city}
                                     </span>
                                 </p>
-                                <p className="text-xs text-white font-semibold">
+                                <p className="text-sm text-white font-normal">
                                     Postal Code :{" "}
-                                    <span className="text-xs text-white font-semibold">
+                                    <span className="text-sm text-white font-normal">
                                         {postalCode}
                                     </span>
                                 </p>
-                                <p className="text-xs text-white font-semibold">
+                                <p className="text-sm text-white font-normal">
                                     Email Address :{" "}
-                                    <span className="text-xs text-white font-semibold">
+                                    <span className="text-sm text-white font-normal">
                                         {email}
                                     </span>
                                 </p>
-                                <p className="text-xs text-white font-semibold">
+                                <p className="text-sm text-white font-normal">
                                     Phone Number :{" "}
-                                    <span className="text-xs text-white font-semibold">
+                                    <span className="text-sm text-white font-normal">
                                         {number}
                                     </span>
                                 </p>
                                 <button
                                     onClick={handleUpdate}
-                                    className="bg-red-600 opacity-90  hover:bg-red-700 text-white py-1 px-4 rounded-md  mt-6"
+                                    className="bg-red-600 opacity-90  hover:bg-red-700 text-white py-1 px-4 rounded-md  mt-20"
                                 >
                                     Update
                                 </button>

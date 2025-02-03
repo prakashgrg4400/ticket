@@ -15,6 +15,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch, useSelector } from "react-redux";
 import { setInitialBilling } from "../redux/slices/userBilling";
 import InputField from "../components/checkout/InputField";
+import NavbarLayout from "../layout/NavbarLayout";
 
 const schema = yup
     .object({
@@ -65,6 +66,7 @@ function Checkout() {
 
     return (
         <>
+            <NavbarLayout />
             <header className="bg-eventDetailbg2 bg-no-repeat bg-center h-[40vh] relative ">
                 <div className="h-full w-full bg-purple-900 opacity-40"> </div>
                 <motion.div

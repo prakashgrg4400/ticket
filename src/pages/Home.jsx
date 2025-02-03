@@ -6,10 +6,12 @@ import FunActivities from "../components/FunActivities";
 import TrendingEvents from "../components/TrendingEvents";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import NavbarLayout from "../layout/NavbarLayout";
 
 function Home() {
     return (
         <>
+            <NavbarLayout />
             <Header />
             <main>
                 <SearchCategory />

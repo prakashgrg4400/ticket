@@ -3,7 +3,7 @@ import Slider from "./Slider";
 
 function Header() {
     return (
-        <header className="animate-start">
+        <header className="animate-start ">
             <Slider />
         </header>
     );

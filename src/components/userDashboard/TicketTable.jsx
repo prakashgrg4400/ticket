@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 function TicketTable() {
     return (
         <section className="min-h-[85vh] mb-8">
@@ -32,9 +34,11 @@ function TicketTable() {
                                 </span>
                             </td>
                             <td>
-                                <button className="px-4 py-2 rounded-[30px] bg-blue-500 text-white">
-                                    Details
-                                </button>
+                                <NavLink to="/history-details">
+                                    <button className="px-4 py-2 rounded-[30px] bg-blue-500 text-white">
+                                        Details
+                                    </button>
+                                </NavLink>
                             </td>
                         </tr>
                         <tr>
@@ -50,9 +54,11 @@ function TicketTable() {
                                 </span>
                             </td>
                             <td>
-                                <button className="px-4 py-2 rounded-[30px] bg-blue-500 text-white">
-                                    Details
-                                </button>
+                                <NavLink to="/history-details">
+                                    <button className="px-4 py-2 rounded-[30px] bg-blue-500 text-white">
+                                        Details
+                                    </button>
+                                </NavLink>
                             </td>
                         </tr>
                     </tbody>

@@ -10,7 +10,7 @@ function Mission() {
                     variants={slideup(0.5)}
                     initial="initial"
                     whileInView="animate"
-                    className="text-3xl font-bold"
+                    className="text-3xl font-bold text-gray-600"
                 >
                     Our Mission
                 </motion.h1>
@@ -18,7 +18,7 @@ function Mission() {
                     variants={slideup(0.7)}
                     initial="initial"
                     whileInView="animate"
-                    className="text-lg text-center text-black opacity-50"
+                    className="text-lg text-center text-gray-500"
                 >
                     We are dedicated to bringing unforgettable live experiences
                     to our customers through seamless ticket booking services.
@@ -37,7 +37,7 @@ function Mission() {
                             <mission.img className="text-4xl p-[1rem] box-content text-white rounded-full bg-purple-500 " />
                             <div className="flex flex-col items-center">
                                 <mission.icon className="text-3xl text-[grey]" />
-                                <p className="text-center text-black opacity-50">
+                                <p className="text-center text-gray-500">
                                     {mission.title}
                                 </p>
                             </div>

@@ -3,10 +3,12 @@ import Mission from "../components/Mission";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import { headerAnimation } from "../animation/animate";
+import NavbarLayout from "../layout/NavbarLayout";
 
 function AboutUs() {
     return (
         <>
+            <NavbarLayout />
             <header className="h-[80vh] w-full bg-black bg-aboutbg bg-cover bg-[bottom]">
                 <div className="h-full w-full bg-[#3C2340] opacity-80"></div>
                 <motion.h1

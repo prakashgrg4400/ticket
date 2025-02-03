@@ -12,6 +12,7 @@ import {
 import Test from "./components/Test/Test";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import PageNotFound from "./pages/PageNotFound";
 
 const Events = lazy(() => import("./pages/Events"));
 const Home = lazy(() => import("./pages/Home"));
@@ -24,6 +25,8 @@ const ConfirmPayment = lazy(() => import("./pages/ConfirmPayment"));
 const SuccessPayment = lazy(() => import("./pages/SuccessPayment"));
 const FailurePayment = lazy(() => import("./pages/FailurePayment"));
 const UserDashboard = lazy(() => import("./pages/UserDashboard"));
+// const HistoryDetails = lazy(() => import("./pages/HistoryDetails"));
+const HistoryDetails = lazy(() => import("./pages/HistoryDetails"));
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -51,6 +54,8 @@ const router = createBrowserRouter(
             <Route path="/failure" element={<FailurePayment />} />
             <Route path="/userDashboard" element={<UserDashboard />} />
             <Route path="/test" element={<Test />} />
+            <Route path="/history-details" element={<HistoryDetails />} />
+            <Route path="*" element={<PageNotFound />} />
         </Route>
     )
 );

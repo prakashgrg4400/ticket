@@ -9,7 +9,7 @@ function ChooseUs() {
                 variants={slideup(0, 5)}
                 initial="initial"
                 whileInView="animate"
-                className="text-center text-3xl font-bold"
+                className="text-center text-3xl font-bold text-gray-600"
             >
                 Why Choose Us
             </motion.h2>
@@ -25,13 +25,17 @@ function ChooseUs() {
                             initial="initial"
                             whileInView={"animate"}
                             key={index}
-                            className="bg-[#F8F9FA]  w-[48%] m-auto p-3 shadow-[7px_7px_5px_0_#eae9e9] "
+                            className="bg-[#F8F9FA]  w-[48%] m-auto p-3 shadow-[7px_7px_5px_0_#eae9e9] space-y-4 "
                         >
                             <div className="flex gap-3 items-center">
                                 <choo.icon className="text-[#9C27B0] text-2xl" />
-                                <h2 className="text-xl">{choo.title}</h2>
+                                <h2 className="text-xl text-gray-500">
+                                    {choo.title}
+                                </h2>
                             </div>
-                            <p>{choo.description}</p>
+                            <p className="text-gray-500 text-sm">
+                                {choo.description}
+                            </p>
                         </motion.div>
                     );
                 })}

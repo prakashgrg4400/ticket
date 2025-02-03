@@ -15,6 +15,7 @@ import Ticket from "../components/EventInfo/Ticket";
 import Details from "../components/EventInfo/Details";
 import SeatView from "../components/EventInfo/SeatView";
 import Organizer from "../components/EventInfo/Organizer";
+import NavbarLayout from "../layout/NavbarLayout";
 
 function EventDetails() {
     const { id } = useLoaderData();
@@ -49,11 +50,14 @@ function EventDetails() {
         e.preventDefault();
         console.log(numberOfTickest);
         console.log("Prakash");
-        return navigate(`/cart/${id}?quantity=${numberOfTickest}&status=${status}`);
+        return navigate(
+            `/cart/${id}?quantity=${numberOfTickest}&status=${status}`
+        );
     };
 
     return (
         <>
+            <NavbarLayout />
             <header className="bg-eventDetailbg2 bg-no-repeat bg-center h-[40vh] relative">
                 <div className="h-full w-full bg-purple-900 opacity-40"> </div>
                 <motion.div
